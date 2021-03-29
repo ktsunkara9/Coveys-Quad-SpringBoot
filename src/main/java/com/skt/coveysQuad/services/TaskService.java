@@ -3,6 +3,7 @@ package com.skt.coveysQuad.services;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,10 @@ public class TaskService {
 
 	public List<Task> getTasks() {
 		return tasks;
+	}
+
+	public Task getTask(Integer id) {
+		return tasks.stream().filter(task -> task.getId() == id).findFirst().get();
 	}
 
 	public void addTask(Task task) {
