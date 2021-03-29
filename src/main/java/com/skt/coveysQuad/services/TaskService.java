@@ -8,6 +8,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.skt.coveysQuad.entities.Task;
+import com.skt.coveysQuad.exceptions.TaskNotFoundException;
 
 @Service
 public class TaskService {
@@ -19,7 +20,15 @@ public class TaskService {
 	}
 
 	public Task getTask(Integer id) {
-		return tasks.stream().filter(task -> task.getId() == id).findFirst().get();
+
+		Optional<Task> searchedTask = tasks.stream().filter(task -> task.getId() == id).findFirst();
+
+		if (id < 0 || !searchedTask.isPresent()) {
+			throw new TaskNotFoundException("Task id Not Found : " + id);
+		}
+
+		return searchedTask.get();
+
 	}
 
 	public void addTask(Task task) {
