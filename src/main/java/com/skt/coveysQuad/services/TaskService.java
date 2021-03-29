@@ -3,10 +3,12 @@ package com.skt.coveysQuad.services;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
 import com.skt.coveysQuad.entities.Task;
+import com.skt.coveysQuad.exceptions.TaskNotFoundException;
 
 @Service
 public class TaskService {
@@ -15,6 +17,18 @@ public class TaskService {
 
 	public List<Task> getTasks() {
 		return tasks;
+	}
+
+	public Task getTask(Integer id) {
+
+		Optional<Task> searchedTask = tasks.stream().filter(task -> task.getId() == id).findFirst();
+
+		if (id < 0 || !searchedTask.isPresent()) {
+			throw new TaskNotFoundException("Task id Not Found : " + id);
+		}
+
+		return searchedTask.get();
+
 	}
 
 	public void addTask(Task task) {
