@@ -49,4 +49,14 @@ public class TaskRestController {
 		return new ResponseEntity<TaskErrorResponse>(error, HttpStatus.NOT_FOUND);
 	}
 
+
+	@ExceptionHandler
+	public ResponseEntity<TaskErrorResponse> handleTaskNotFoundException(Exception e) {
+		TaskErrorResponse err = new TaskErrorResponse();
+		err.setStatus(HttpStatus.BAD_REQUEST.value());
+		err.setMsg(e.getMessage());
+		err.setTimestamp(System.currentTimeMillis());
+		return new ResponseEntity<TaskErrorResponse>(err, HttpStatus.BAD_REQUEST);
+	}
+
 }
