@@ -28,7 +28,6 @@ public class TaskService {
 		}
 
 		return searchedTask.get();
-
 	}
 
 	public void addTask(Task task) {
