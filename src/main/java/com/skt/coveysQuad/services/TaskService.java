@@ -36,4 +36,8 @@ public class TaskService {
 		tasks.add(task);
 	}
 
+	public void deleteTask(Integer id) {
+		tasks.removeIf(t -> t.getId() == id);
+	}
+
 }
