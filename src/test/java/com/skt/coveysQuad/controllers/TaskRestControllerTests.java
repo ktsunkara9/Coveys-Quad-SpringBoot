@@ -11,7 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
-import com.skt.coveysQuad.entities.Task;
+import com.skt.coveysQuad.data.entities.Task;
+
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class TaskRestControllerTests {

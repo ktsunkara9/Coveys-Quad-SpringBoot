@@ -7,7 +7,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.skt.coveysQuad.entities.Task;
+import com.skt.coveysQuad.data.entities.Task;
 import com.skt.coveysQuad.exceptions.TaskNotFoundException;
 
 @Service

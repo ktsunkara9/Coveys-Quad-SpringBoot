@@ -1,4 +1,4 @@
-package com.skt.coveysQuad.entities;
+package com.skt.coveysQuad.data.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
